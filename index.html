@@ -239,6 +239,7 @@ footer{background:var(--warm);border-top:2px solid var(--sand);padding:4rem 8% 2
 @keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
 @keyframes fl1{0%,100%{transform:translateY(0) rotate(-1deg);}50%{transform:translateY(-10px) rotate(1deg);}}
 @keyframes fl2{0%,100%{transform:translateY(0) rotate(1deg);}50%{transform:translateY(-8px) rotate(-1deg);}}
+  @keyframes logoFloat{0%,100%{transform:translateY(0) scale(1);}50%{transform:translateY(-12px) scale(1.03);}}
 
 /* MOBİL MENÜ */
 .mob{display:none;position:fixed;inset:0;z-index:300;background:var(--cream);flex-direction:column;align-items:center;justify-content:center;gap:1.75rem;}
@@ -337,7 +338,7 @@ footer{background:var(--warm);border-top:2px solid var(--sand);padding:4rem 8% 2
   <div class="hero-right">
     <div class="hero-visual">
       <div class="hero-plate">
-      <span class="hero-plate-fallback"></span>
+      <img src="logo arkafonsuz.png" alt="Madrid Yemek Rehberi Logo" style="width:65%;height:65%;object-fit:contain;border-radius:0;animation:logoFloat 4s ease-in-out infinite;">
       </div>
       <div class="fc f1">
         <div class="fc-top"><span class="fc-ico">🗺️</span><span class="fc-lbl" data-tr="Tapas Turu" data-en="Tapas Tour">Tapas Turu</span></div>
