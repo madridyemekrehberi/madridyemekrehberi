@@ -230,6 +230,7 @@ footer{background:var(--warm);border-top:2px solid var(--sand);padding:4rem 8% 2
 @keyframes fl1{0%,100%{transform:translateY(0) rotate(-1deg);}50%{transform:translateY(-10px) rotate(1deg);}}
 @keyframes fl2{0%,100%{transform:translateY(0) rotate(1deg);}50%{transform:translateY(-8px) rotate(-1deg);}}
   @keyframes logoFloat{0%,100%{transform:translateY(0) scale(1);}50%{transform:translateY(-12px) scale(1.03);}}
+  @keyframes slideUp{from{opacity:0;transform:translateY(40px);}to{opacity:1;transform:translateY(0);}}
 
 /* MOBİL MENÜ */
 .mob{display:none;position:fixed;inset:0;z-index:300;background:var(--cream);flex-direction:column;align-items:center;justify-content:center;gap:1.75rem;}
@@ -580,11 +581,11 @@ footer{background:var(--warm);border-top:2px solid var(--sand);padding:4rem 8% 2
 </section>
 
 <!-- MÜŞTERİ YORUMLARI -->
-<div style="background:var(--red);padding:5rem 8%;display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;position:relative;overflow:hidden;" class="reveal">
+<div style="background:var(--red);padding:5rem 8%;display:grid;grid-template-columns:1fr 1fr 1fr;gap:2rem;position:relative;overflow:hidden;" class="reveal">
   <div style="position:absolute;right:-4rem;top:-4rem;width:300px;height:300px;border-radius:50%;border:60px solid rgba(255,255,255,.05);"></div>
-  <div style="background:var(--white);border-radius:16px;padding:2.5rem;position:relative;z-index:1;">
+  <div style="background:var(--white);border-radius:16px;padding:2.5rem;position:relative;z-index:1;opacity:0;animation:slideUp .7s ease .2s forwards;">
     <div style="font-size:1.2rem;margin-bottom:1rem;letter-spacing:2px;">⭐⭐⭐⭐⭐</div>
-    <p style="font-size:.95rem;color:var(--brown);line-height:1.8;font-style:italic;margin-bottom:1.5rem;" data-tr="&quot;Eşimle beraber Türkiye'de yaşıyoruz ve Madrid'e geldik. Tercihimiz e-book oldu. Detaylı ve her bütçeye göre opsiyon vardı. Restoranlar bölge bölge ayrıştırılmıştı, çok faydalı. Turist tuzağından uzak 100'den fazla restoran vardı.&quot;" data-en="&quot;My wife and I live in Turkey and we visited Madrid. We chose the e-book. It was detailed with options for every budget. Restaurants were organized by neighborhood, very useful. Over 100 restaurants, far from tourist traps.&quot;">"Eşimle beraber Türkiye'de yaşıyoruz ve Madrid'e geldik. Tercihimiz e-book oldu. Detaylı ve her bütçeye göre opsiyon vardı. Restoranlar bölge bölge ayrıştırılmıştı, çok faydalı. Turist tuzağından uzak 100'den fazla restoran vardı."</p>
+    <p style="font-size:.9rem;color:var(--brown);line-height:1.8;font-style:italic;margin-bottom:1.5rem;" data-tr="&quot;Eşimle beraber Türkiye'de yaşıyoruz ve Madrid'e geldik. Tercihimiz e-book oldu. Detaylı ve her bütçeye göre opsiyon vardı. Restoranlar bölge bölge ayrıştırılmıştı, çok faydalı. Turist tuzağından uzak 100'den fazla restoran vardı.&quot;" data-en="&quot;My wife and I live in Turkey and we visited Madrid. We chose the e-book. It was detailed with options for every budget. Restaurants were organized by neighborhood, very useful. Over 100 restaurants, far from tourist traps.&quot;">"Eşimle beraber Türkiye'de yaşıyoruz ve Madrid'e geldik. Tercihimiz e-book oldu. Detaylı ve her bütçeye göre opsiyon vardı. Restoranlar bölge bölge ayrıştırılmıştı, çok faydalı. Turist tuzağından uzak 100'den fazla restoran vardı."</p>
     <div style="display:flex;align-items:center;gap:12px;">
       <div style="width:45px;height:45px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-family:'Playfair Display',serif;">M</div>
       <div>
@@ -593,14 +594,25 @@ footer{background:var(--warm);border-top:2px solid var(--sand);padding:4rem 8% 2
       </div>
     </div>
   </div>
-  <div style="background:var(--white);border-radius:16px;padding:2.5rem;position:relative;z-index:1;">
+  <div style="background:var(--white);border-radius:16px;padding:2.5rem;position:relative;z-index:1;opacity:0;animation:slideUp .7s ease .4s forwards;">
     <div style="font-size:1.2rem;margin-bottom:1rem;letter-spacing:2px;">⭐⭐⭐⭐⭐</div>
-    <p style="font-size:.95rem;color:var(--brown);line-height:1.8;font-style:italic;margin-bottom:1.5rem;" data-tr="&quot;Arkadaşlarımla Madrid'e geldik, Emir'in tapas turuna katıldık. Her durak birbirinden iyiydi, siparişleri o verdi biz sadece tadını çıkardık. Kesinlikle tavsiye ederim.&quot;" data-en="&quot;I came to Madrid with friends and joined Emir's tapas tour. Every stop was amazing, he handled all the orders and we just enjoyed. Absolutely recommend.&quot;">"Arkadaşlarımla Madrid'e geldik, Emir'in tapas turuna katıldık. Her durak birbirinden iyiydi, siparişleri o verdi biz sadece tadını çıkardık. Kesinlikle tavsiye ederim."</p>
+    <p style="font-size:.9rem;color:var(--brown);line-height:1.8;font-style:italic;margin-bottom:1.5rem;" data-tr="&quot;Arkadaşlarımla Madrid'e geldik, Emir'in tapas turuna katıldık. Her durak birbirinden iyiydi, siparişleri o verdi biz sadece tadını çıkardık. Kesinlikle tavsiye ederim.&quot;" data-en="&quot;I came to Madrid with friends and joined Emir's tapas tour. Every stop was amazing, he handled all the orders and we just enjoyed. Absolutely recommend.&quot;">"Arkadaşlarımla Madrid'e geldik, Emir'in tapas turuna katıldık. Her durak birbirinden iyiydi, siparişleri o verdi biz sadece tadını çıkardık. Kesinlikle tavsiye ederim."</p>
     <div style="display:flex;align-items:center;gap:12px;">
       <div style="width:45px;height:45px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-family:'Playfair Display',serif;">M</div>
       <div>
         <div style="font-family:'Playfair Display',serif;font-weight:700;color:var(--brown);font-size:.95rem;">Merve</div>
         <div style="font-size:.72rem;color:var(--muted);" data-tr="Tapas Turu Katılımcısı" data-en="Tapas Tour Participant">Tapas Turu Katılımcısı</div>
+      </div>
+    </div>
+  </div>
+  <div style="background:var(--white);border-radius:16px;padding:2.5rem;position:relative;z-index:1;opacity:0;animation:slideUp .7s ease .6s forwards;">
+    <div style="font-size:1.2rem;margin-bottom:1rem;letter-spacing:2px;">⭐⭐⭐⭐⭐</div>
+    <p style="font-size:.9rem;color:var(--brown);line-height:1.8;font-style:italic;margin-bottom:1.5rem;" data-tr="&quot;Eşimle beraber Finlandiya'dan geldik. Vejeteryan olduğumuz için yediklerimize dikkat ediyoruz. Ortak bir arkadaşımız sayesinde Emir ile tanıştım ve gelmeden önce e-mail attım. Bize çok yardımcı oldu, özel bir tur ayarladı. Lezzetli ve çok mutlu ayrıldık.&quot;" data-en="&quot;My wife and I came from Finland. As vegetarians, we're careful about what we eat. I met Emir through a mutual friend and emailed him before arriving. He was incredibly helpful and arranged a special tour for us. Delicious food and we left very happy.&quot;">"Eşimle beraber Finlandiya'dan geldik. Vejeteryan olduğumuz için yediklerimize dikkat ediyoruz. Ortak bir arkadaşımız sayesinde Emir ile tanıştım ve gelmeden önce e-mail attım. Bize çok yardımcı oldu, özel bir tur ayarladı. Lezzetli ve çok mutlu ayrıldık."</p>
+    <div style="display:flex;align-items:center;gap:12px;">
+      <div style="width:45px;height:45px;border-radius:50%;background:var(--brown);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-family:'Playfair Display',serif;">K</div>
+      <div>
+        <div style="font-family:'Playfair Display',serif;font-weight:700;color:var(--brown);font-size:.95rem;">Kaan</div>
+        <div style="font-size:.72rem;color:var(--muted);" data-tr="Özel Tur Katılımcısı" data-en="Custom Tour Participant">Özel Tur Katılımcısı</div>
       </div>
     </div>
   </div>
