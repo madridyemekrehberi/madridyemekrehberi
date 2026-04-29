@@ -189,17 +189,31 @@ section{background:var(--cream);}
 .why-h{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:var(--brown);margin-bottom:.75rem;}
 .why-p{font-size:.85rem;color:var(--muted);line-height:1.75;}
 
-/* QR BÖLÜMÜ */
-.qr-section{background:var(--red);padding:5rem 8%;display:grid;grid-template-columns:1fr auto;gap:4rem;align-items:center;position:relative;overflow:hidden;}
-.qr-section::after{content:'';position:absolute;right:-4rem;top:-4rem;width:300px;height:300px;border-radius:50%;border:60px solid rgba(255,255,255,.05);}
-.qr-left .mani-lbl{margin-bottom:1rem;}
-.qr-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.8rem);font-weight:700;color:#fff;line-height:1.15;margin-bottom:1rem;}
-.qr-desc{font-size:.93rem;color:rgba(255,255,255,.75);line-height:1.8;max-width:480px;}
-.qr-box{background:var(--white);border-radius:16px;padding:1.5rem;display:flex;flex-direction:column;align-items:center;gap:.8rem;min-width:180px;position:relative;z-index:1;flex-shrink:0;box-shadow:0 12px 40px rgba(0,0,0,.2);}
-.qr-code{width:140px;height:140px;background:var(--cream);border-radius:8px;display:flex;align-items:center;justify-content:center;overflow:hidden;}
-.qr-code svg{width:120px;height:120px;}
-.qr-label{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--red);text-align:center;}
-.qr-url{font-size:.72rem;color:var(--muted);text-align:center;}
+<!-- MÜŞTERİ YORUMLARI -->
+<div class="qr-section reveal" style="grid-template-columns:1fr 1fr;gap:2.5rem;">
+  <div style="background:var(--white);border-radius:16px;padding:2.5rem;position:relative;z-index:1;">
+    <div style="font-size:2rem;margin-bottom:1rem;">⭐⭐⭐⭐⭐</div>
+    <p style="font-size:.95rem;color:var(--brown);line-height:1.8;font-style:italic;margin-bottom:1.5rem;" data-tr="&quot;Eşimle beraber Türkiye'de yaşıyoruz ve Madrid'e geldik. Tercihimiz e-book oldu. Detaylı ve her bütçeye göre opsiyon vardı. Restoranlar bölge bölge ayrıştırılmıştı, çok faydalı. Turist tuzağından uzak 100'den fazla restoran vardı.&quot;" data-en="&quot;My wife and I live in Turkey and we visited Madrid. We chose the e-book. It was detailed with options for every budget. Restaurants were organized by neighborhood, very useful. Over 100 restaurants, far from tourist traps.&quot;">"Eşimle beraber Türkiye'de yaşıyoruz ve Madrid'e geldik. Tercihimiz e-book oldu. Detaylı ve her bütçeye göre opsiyon vardı. Restoranlar bölge bölge ayrıştırılmıştı, çok faydalı. Turist tuzağından uzak 100'den fazla restoran vardı."</p>
+    <div style="display:flex;align-items:center;gap:12px;">
+      <div style="width:45px;height:45px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-family:'Playfair Display',serif;">M</div>
+      <div>
+        <div style="font-family:'Playfair Display',serif;font-weight:700;color:var(--brown);font-size:.95rem;">Miguel</div>
+        <div style="font-size:.72rem;color:var(--muted);" data-tr="E-book Rehberi Kullanıcısı" data-en="E-book Guide User">E-book Rehberi Kullanıcısı</div>
+      </div>
+    </div>
+  </div>
+  <div style="background:var(--white);border-radius:16px;padding:2.5rem;position:relative;z-index:1;">
+    <div style="font-size:2rem;margin-bottom:1rem;">⭐⭐⭐⭐⭐</div>
+    <p style="font-size:.95rem;color:var(--brown);line-height:1.8;font-style:italic;margin-bottom:1.5rem;" data-tr="&quot;Arkadaşlarımla Madrid'e geldik, Emir'in tapas turuna katıldık. Her durak birbirinden iyiydi, siparişleri o verdi biz sadece tadını çıkardık. Kesinlikle tavsiye ederim.&quot;" data-en="&quot;I came to Madrid with friends and joined Emir's tapas tour. Every stop was amazing, he handled all the orders and we just enjoyed. Absolutely recommend.&quot;">"Arkadaşlarımla Madrid'e geldik, Emir'in tapas turuna katıldık. Her durak birbirinden iyiydi, siparişleri o verdi biz sadece tadını çıkardık. Kesinlikle tavsiye ederim."</p>
+    <div style="display:flex;align-items:center;gap:12px;">
+      <div style="width:45px;height:45px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-family:'Playfair Display',serif;">M</div>
+      <div>
+        <div style="font-family:'Playfair Display',serif;font-weight:700;color:var(--brown);font-size:.95rem;">Merve</div>
+        <div style="font-size:.72rem;color:var(--muted);" data-tr="Tapas Turu Katılımcısı" data-en="Tapas Tour Participant">Tapas Turu Katılımcısı</div>
+      </div>
+    </div>
+  </div>
+</div>
 
 /* İLETİŞİM — yeni krem zemin */
 .contact-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:5rem;align-items:start;}
