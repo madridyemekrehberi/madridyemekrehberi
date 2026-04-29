@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#FDF6EC">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<title>Madrid Yemek Rehberi — Emir Yerebaşmaz</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream: #FDF6EC; --warm: #F5ECD9; --sand: #E8D5B0; --soft: #FAF1E0;
+  --red: #8B1A1A; --red2: #A52020; --redsft: rgba(139,26,26,0.09);
+  --brown: #3D2010; --muted: #8C6E50; --border: rgba(61,32,16,0.13);
+  --white: #fff; --gold: #C8964A;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;background:#FDF6EC;}
+body{font-family:'DM Sans',sans-serif;background:#FDF6EC;color:var(--brown);overflow-x:hidden;min-height:100vh;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(253,246,236,0.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 6%;height:68px;transition:box-shadow .3s;}
+nav.sc{box-shadow:0 4px 30px rgba(61,32,16,.1);}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
+.logo-mark{width:42px;height:42px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;font-size:1.15rem;box-shadow:0 3px 14px rgba(139,26,26,.3);}
+.logo-t{display:flex;flex-direction:column;line-height:1.1;}
+.logo-t b{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--brown);}
+.logo-t span{font-size:.57rem;letter-spacing:.2em;text-transform:uppercase;color:var(--red);font-weight:600;}
+.nav-right{display:flex;align-items:center;gap:1.5rem;}
+.nav-ul{display:flex;align-items:center;gap:2rem;list-style:none;}
+.nav-ul a{font-size:.83rem;color:var(--muted);text-decoration:none;font-weight:400;transition:color .2s;}
+.nav-ul a:hover{color:var(--red);}
+.nav-btn{background:var(--red)!important;color:#fff!important;padding:.5rem 1.4rem;border-radius:6px;font-weight:600!important;transition:background .2s!important;}
+.nav-btn:hover{background:var(--red2)!important;}
+
+/* DİL DEĞİŞTİRİCİ */
+.lang-switch{display:flex;align-items:center;background:var(--warm);border:1px solid var(--border);border-radius:100px;padding:3px;gap:0;}
+.lang-btn{background:none;border:none;padding:.4rem .8rem;font-family:'DM Sans',sans-serif;font-size:.72rem;font-weight:600;color:var(--muted);cursor:pointer;border-radius:100px;letter-spacing:.05em;transition:all .25s;}
+.lang-btn.active{background:var(--red);color:#fff;}
+.lang-btn:not(.active):hover{color:var(--brown);}
+
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;}
+.burger span{width:22px;height:2px;background:var(--brown);border-radius:2px;}
+
+/* HERO */
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;padding-top:68px;background:var(--cream);}
+.hero-left{display:flex;flex-direction:column;justify-content:center;padding:5rem 4% 5rem 8%;}
+.h-eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--red);font-weight:600;margin-bottom:1.75rem;opacity:0;animation:up .7s ease .1s forwards;}
+.h-eyebrow::before{content:'';width:28px;height:2px;background:var(--red);}
+.h-title{font-family:'Playfair Display',serif;font-size:clamp(2.6rem,4.5vw,4.2rem);font-weight:700;line-height:1.08;color:var(--red);margin-bottom:1.5rem;opacity:0;animation:up .7s ease .25s forwards;}
+.h-title span{color:var(--brown);display:block;font-style:italic;font-weight:400;font-size:.82em;}
+.h-desc{font-size:1rem;line-height:1.85;color:var(--muted);max-width:430px;margin-bottom:2.5rem;opacity:0;animation:up .7s ease .4s forwards;}
+.h-btns{display:flex;gap:1rem;flex-wrap:wrap;opacity:0;animation:up .7s ease .55s forwards;}
+.btn-r{padding:.9rem 2rem;background:var(--red);color:#fff;border-radius:8px;text-decoration:none;font-weight:600;font-size:.9rem;transition:all .25s;box-shadow:0 4px 20px rgba(139,26,26,.3);display:inline-flex;align-items:center;gap:8px;}
+.btn-r:hover{background:var(--red2);transform:translateY(-2px);box-shadow:0 8px 30px rgba(139,26,26,.35);}
+.btn-o{padding:.9rem 1.8rem;border:1.5px solid var(--sand);color:var(--brown);border-radius:8px;text-decoration:none;font-weight:600;font-size:.9rem;background:var(--white);transition:all .25s;display:inline-flex;align-items:center;gap:8px;}
+.btn-o:hover{border-color:var(--red);color:var(--red);}
+
+.h-trust{margin-top:2.75rem;display:flex;align-items:center;gap:1rem;opacity:0;animation:up .7s ease .7s forwards;}
+.h-titem{text-align:center;}
+.h-tnum{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:var(--red);display:block;line-height:1;}
+.h-tlbl{font-size:.63rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);}
+.h-tdiv{width:1px;height:34px;background:var(--border);}
+
+.hero-right{position:relative;display:flex;align-items:center;justify-content:center;padding:5rem 6% 5rem 2%;overflow:visible;background:var(--cream);}
+.hero-visual{position:relative;width:100%;max-width:480px;opacity:0;animation:fadeIn .9s ease .3s forwards;}
+.hero-plate{width:100%;aspect-ratio:1;border-radius:50%;overflow:hidden;display:flex;align-items:center;justify-content:center;position:relative;
+  background:radial-gradient(circle at 38% 35%,#F5DEB8 0%,#E8C078 40%,#D4A050 70%,#C08040 100%);
+  box-shadow:0 30px 80px rgba(92,61,30,.2),0 0 0 18px rgba(232,213,176,.25),0 0 0 36px rgba(232,213,176,.1);}
+.hero-plate img{width:86%;height:86%;object-fit:cover;border-radius:50%;}
+.hero-plate-fallback{font-size:8rem;}
+
+.fc{position:absolute;background:var(--white);border-radius:14px;padding:.9rem 1.2rem;box-shadow:0 8px 32px rgba(61,32,16,.15);white-space:nowrap;border:1px solid var(--border);opacity:0;}
+.fc.f1{top:6%;right:-6%;animation:up .7s ease .9s forwards,fl1 5s ease-in-out 1.6s infinite;}
+.fc.f2{bottom:18%;left:-10%;animation:up .7s ease 1.1s forwards,fl2 5.5s ease-in-out 1.8s infinite;}
+.fc.f3{bottom:3%;right:4%;animation:up .7s ease 1.3s forwards,fl1 4.5s ease-in-out 2s infinite;}
+.fc-top{display:flex;align-items:center;gap:8px;margin-bottom:3px;}
+.fc-ico{font-size:1.2rem;}
+.fc-lbl{font-size:.62rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);}
+.fc-val{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--brown);}
+.fc-sub{font-size:.68rem;color:var(--muted);}
+.fc-pill{display:inline-flex;align-items:center;gap:4px;border-radius:100px;padding:2px 9px;font-size:.6rem;font-weight:600;}
+.fc-pill.gr{background:rgba(107,123,58,.12);color:#5B7030;}
+.fc-pill.rd{background:var(--redsft);color:var(--red);}
+
+/* STATS BAR */
+.stats-bar{background:var(--warm);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:2.5rem 7%;display:grid;grid-template-columns:repeat(4,1fr);}
+.st{text-align:center;padding:1rem;position:relative;}
+.st:not(:last-child)::after{content:'';position:absolute;right:0;top:20%;bottom:20%;width:1px;background:var(--border);}
+.st-n{font-family:'Playfair Display',serif;font-size:2.6rem;font-weight:700;color:var(--red);line-height:1;display:block;margin-bottom:.35rem;}
+.st-l{font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);}
+
+/* MANIFESTO */
+.mani{background:var(--red);padding:5rem 8%;position:relative;overflow:hidden;}
+.mani::before{content:'"';position:absolute;top:-3rem;left:4%;font-family:'Playfair Display',serif;font-size:18rem;color:rgba(255,255,255,.06);line-height:1;pointer-events:none;font-style:italic;}
+.mani-in{max-width:780px;position:relative;z-index:1;}
+.mani-lbl{font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:1.25rem;font-weight:600;}
+.mani-q{font-family:'Playfair Display',serif;font-size:clamp(1.4rem,2.5vw,2.1rem);font-weight:400;font-style:italic;color:#fff;line-height:1.6;margin-bottom:1.5rem;}
+.mani-a{font-size:.82rem;color:rgba(255,255,255,.6);}
+.mani-a strong{color:rgba(255,255,255,.9);font-weight:700;}
+
+/* SECTION */
+html{background:var(--cream);}
+body{background:var(--cream);}
+section{background:var(--cream);}
+.sec{padding:6rem 8%;background:var(--cream);}
+.sec-alt{background:var(--warm);}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease;}
+.reveal.in{opacity:1;transform:translateY(0);}
+.d1{transition-delay:.1s;}.d2{transition-delay:.2s;}.d3{transition-delay:.3s;}.d4{transition-delay:.4s;}
+.tag{display:inline-block;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--red);font-weight:700;border-left:2px solid var(--red);padding-left:10px;margin-bottom:1rem;}
+.sh{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.8rem);font-weight:700;color:var(--red);line-height:1.15;margin-bottom:.8rem;}
+.sh em{font-style:italic;color:var(--brown);}
+.sp{font-size:.95rem;color:var(--muted);line-height:1.85;max-width:540px;}
+
+/* SERVİSLER — yeni tasarım: ikon başlıklı krem kartlar */
+.srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3.5rem;}
+.srv-card{background:var(--white);border-radius:16px;padding:2rem;border:1px solid var(--border);transition:transform .3s,box-shadow .3s,border-color .3s;display:flex;flex-direction:column;position:relative;overflow:hidden;}
+.srv-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(to right,var(--red),var(--gold));transform:scaleX(0);transform-origin:left;transition:transform .4s ease;}
+.srv-card:hover{transform:translateY(-7px);box-shadow:0 16px 48px rgba(61,32,16,.13);border-color:transparent;}
+.srv-card:hover::before{transform:scaleX(1);}
+.srv-icon-wrap{width:64px;height:64px;border-radius:14px;background:var(--soft);display:flex;align-items:center;justify-content:center;font-size:1.8rem;margin-bottom:1.5rem;border:1px solid var(--border);}
+.srv-cat{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--red);font-weight:700;margin-bottom:.5rem;}
+.srv-name{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--brown);margin-bottom:.75rem;line-height:1.2;}
+.srv-desc{font-size:.85rem;color:var(--muted);line-height:1.72;flex:1;margin-bottom:1.5rem;}
+.srv-feat{display:flex;flex-direction:column;gap:.5rem;margin-bottom:1.5rem;padding-top:1rem;border-top:1px dashed var(--border);}
+.srv-feat-i{display:flex;align-items:center;gap:8px;font-size:.78rem;color:var(--brown);}
+.srv-feat-i::before{content:'✓';color:var(--red);font-weight:700;font-size:.85rem;}
+.srv-foot{display:flex;align-items:center;justify-content:space-between;padding-top:1rem;border-top:1px solid var(--border);}
+.srv-meta{font-size:.72rem;color:var(--muted);font-weight:600;}
+.srv-lnk{font-size:.78rem;font-weight:700;color:var(--red);text-decoration:none;transition:gap .2s;display:flex;align-items:center;gap:4px;}
+.srv-lnk:hover{gap:8px;}.srv-lnk::after{content:'→';}
+
+/* HAKKIMDA */
+.about-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:5rem;align-items:center;}
+.about-card{position:relative;background:var(--white);border-radius:18px;padding:3rem 2.5rem;border:1px solid var(--border);box-shadow:0 14px 50px rgba(61,32,16,.1);text-align:center;}
+.about-avatar{width:120px;height:120px;border-radius:50%;background:linear-gradient(135deg,var(--red) 0%,#A52020 100%);display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem;font-family:'Playfair Display',serif;font-size:2.5rem;color:#fff;font-weight:700;box-shadow:0 8px 30px rgba(139,26,26,.3);}
+.about-name{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:var(--brown);margin-bottom:.4rem;}
+.about-role{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--red);font-weight:600;margin-bottom:1.5rem;}
+.about-stats{display:flex;justify-content:space-around;padding-top:1.5rem;border-top:1px solid var(--border);}
+.as-i{text-align:center;}
+.as-n{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--red);display:block;line-height:1;}
+.as-l{font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);}
+.about-text{font-size:.95rem;color:var(--muted);line-height:1.9;margin:1.5rem 0;}
+.about-text strong{color:var(--brown);font-weight:700;}
+.pills{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.5rem;}
+.pill{padding:.4rem 1rem;border:1.5px solid var(--border);border-radius:100px;font-size:.75rem;color:var(--brown);background:var(--white);}
+
+/* TAPAS TUR */
+.tour-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
+.tour-visual{position:relative;background:var(--white);border-radius:20px;padding:2.5rem;border:1px solid var(--border);box-shadow:0 14px 50px rgba(61,32,16,.1);}
+.tour-icon-large{width:90px;height:90px;border-radius:24px;background:var(--soft);display:flex;align-items:center;justify-content:center;font-size:2.5rem;margin-bottom:1.5rem;border:1px solid var(--border);}
+.tour-vh{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:var(--brown);margin-bottom:1.5rem;}
+.tour-feats{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.tour-feat{padding:1rem;background:var(--soft);border-radius:10px;border:1px solid var(--border);}
+.tf-icon{font-size:1.3rem;margin-bottom:.4rem;}
+.tf-num{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--red);display:block;line-height:1;margin-bottom:.2rem;}
+.tf-lbl{font-size:.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;}
+.tour-quote{margin-top:1.5rem;padding-top:1.5rem;border-top:1px dashed var(--border);font-style:italic;color:var(--muted);font-size:.85rem;line-height:1.7;}
+.tour-opts{display:flex;flex-direction:column;gap:1.25rem;margin:2rem 0;}
+.t-opt{padding:1.4rem 1.6rem;background:var(--white);border:1.5px solid var(--border);border-radius:12px;transition:border-color .3s,box-shadow .3s;}
+.t-opt:hover{border-color:var(--red);box-shadow:0 4px 20px rgba(139,26,26,.1);}
+.t-opt-h{display:flex;align-items:center;justify-content:space-between;margin-bottom:.5rem;gap:1rem;}
+.t-opt-n{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--brown);}
+.t-opt-b{font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;background:var(--redsft);color:var(--red);padding:3px 10px;border-radius:100px;font-weight:700;flex-shrink:0;}
+.t-opt-d{font-size:.82rem;color:var(--muted);line-height:1.7;}
+
+/* ÖRNEK MEKANLAR — fotoğrafsız, ikonlu */
+.recs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem;}
+.rec{background:var(--white);border-radius:14px;border:1px solid var(--border);transition:transform .3s,box-shadow .3s;overflow:hidden;}
+.rec:hover{transform:translateY(-5px);box-shadow:0 12px 38px rgba(61,32,16,.12);}
+.rec-top{padding:2rem 1.5rem;background:var(--soft);border-bottom:1px solid var(--border);text-align:center;position:relative;}
+.rec-emoji{font-size:3rem;display:block;margin-bottom:.5rem;}
+.rec-tag{position:absolute;top:1rem;right:1rem;font-size:.55rem;letter-spacing:.15em;text-transform:uppercase;color:var(--red);font-weight:700;background:var(--white);padding:3px 9px;border-radius:100px;border:1px solid var(--border);}
+.rec-body{padding:1.5rem;}
+.rec-cat{font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:var(--red);font-weight:700;margin-bottom:.4rem;}
+.rec-name{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:var(--brown);margin-bottom:.5rem;}
+.rec-note{font-size:.82rem;color:var(--muted);line-height:1.65;}
+
+/* NEDEN BİZ — krem zemin, beyaz kartlar */
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:3.5rem;}
+.why-card{padding:2.5rem 2rem;background:var(--white);border:1px solid var(--border);border-radius:16px;transition:box-shadow .3s,transform .3s;text-align:center;position:relative;overflow:hidden;}
+.why-card::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%) scaleX(0);width:60px;height:3px;background:var(--red);transition:transform .4s ease;border-radius:0 0 4px 4px;}
+.why-card:hover{box-shadow:0 12px 40px rgba(61,32,16,.12);transform:translateY(-5px);}
+.why-card:hover::before{transform:translateX(-50%) scaleX(1);}
+.why-icon-wrap{width:70px;height:70px;border-radius:50%;background:var(--soft);display:flex;align-items:center;justify-content:center;font-size:1.8rem;margin:0 auto 1.5rem;border:2px solid var(--sand);}
+.why-h{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:var(--brown);margin-bottom:.75rem;}
+.why-p{font-size:.85rem;color:var(--muted);line-height:1.75;}
+
+/* QR BÖLÜMÜ */
+.qr-section{background:var(--red);padding:5rem 8%;display:grid;grid-template-columns:1fr auto;gap:4rem;align-items:center;position:relative;overflow:hidden;}
+.qr-section::after{content:'';position:absolute;right:-4rem;top:-4rem;width:300px;height:300px;border-radius:50%;border:60px solid rgba(255,255,255,.05);}
+.qr-left .mani-lbl{margin-bottom:1rem;}
+.qr-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.8rem);font-weight:700;color:#fff;line-height:1.15;margin-bottom:1rem;}
+.qr-desc{font-size:.93rem;color:rgba(255,255,255,.75);line-height:1.8;max-width:480px;}
+.qr-box{background:var(--white);border-radius:16px;padding:1.5rem;display:flex;flex-direction:column;align-items:center;gap:.8rem;min-width:180px;position:relative;z-index:1;flex-shrink:0;box-shadow:0 12px 40px rgba(0,0,0,.2);}
+.qr-code{width:140px;height:140px;background:var(--cream);border-radius:8px;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.qr-code svg{width:120px;height:120px;}
+.qr-label{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--red);text-align:center;}
+.qr-url{font-size:.72rem;color:var(--muted);text-align:center;}
+
+/* İLETİŞİM — yeni krem zemin */
+.contact-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:5rem;align-items:start;}
+.contact-items{display:flex;flex-direction:column;gap:.75rem;margin-top:1.75rem;}
+.c-item{display:flex;align-items:center;gap:14px;font-size:.88rem;color:var(--brown);text-decoration:none;padding:1rem 1.25rem;background:var(--white);border:1.5px solid var(--border);border-radius:10px;transition:all .25s;}
+.c-item:hover{border-color:var(--red);transform:translateX(4px);box-shadow:0 4px 16px rgba(139,26,26,.1);}
+.c-icon-circle{width:38px;height:38px;border-radius:50%;background:var(--soft);display:flex;align-items:center;justify-content:center;font-size:1.05rem;flex-shrink:0;border:1px solid var(--border);}
+.c-text-wrap{display:flex;flex-direction:column;gap:2px;}
+.c-text-lbl{font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);font-weight:600;}
+.c-text-val{font-weight:600;color:var(--brown);}
+
+.nl-box{background:var(--white);border:1.5px solid var(--border);border-radius:16px;padding:2rem;}
+.nl-h{font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:700;color:var(--brown);margin-bottom:.5rem;}
+.nl-p{font-size:.85rem;color:var(--muted);margin-bottom:1.25rem;line-height:1.6;}
+.nl-form{display:flex;flex-direction:column;gap:.8rem;}
+.nl-inp{padding:.95rem 1.2rem;background:var(--cream);border:1.5px solid var(--border);border-radius:8px;font-family:'DM Sans',sans-serif;font-size:.9rem;color:var(--brown);outline:none;transition:border-color .25s;}
+.nl-inp:focus{border-color:var(--red);background:var(--white);}
+.nl-inp::placeholder{color:var(--muted);}
+.nl-note{font-size:.7rem;color:var(--muted);margin-top:.3rem;text-align:center;}
+
+/* FOOTER */
+footer{background:var(--warm);border-top:2px solid var(--sand);padding:4rem 8% 2.5rem;}
+.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:3rem;margin-bottom:3rem;padding-bottom:3rem;border-bottom:1px solid var(--border);}
+.foot-logo{display:flex;align-items:center;gap:10px;margin-bottom:1rem;}
+.foot-mark{width:34px;height:34px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;font-size:1rem;}
+.foot-brand{font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700;color:var(--brown);}
+.foot-desc{font-size:.8rem;line-height:1.82;color:var(--muted);max-width:270px;}
+.foot-soc{display:flex;gap:.6rem;margin-top:1.2rem;}
+.soc{width:34px;height:34px;border-radius:8px;background:var(--sand);display:flex;align-items:center;justify-content:center;font-size:.85rem;text-decoration:none;transition:background .2s;}
+.soc:hover{background:var(--red);}
+.foot-col h5{font-size:.65rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--red);margin-bottom:1rem;}
+.foot-links{list-style:none;display:flex;flex-direction:column;gap:.55rem;}
+.foot-links a{font-size:.83rem;color:var(--muted);text-decoration:none;transition:color .2s;}
+.foot-links a:hover{color:var(--red);}
+.foot-bottom{display:flex;justify-content:space-between;font-size:.75rem;color:var(--muted);opacity:.7;flex-wrap:wrap;gap:.5rem;}
+
+/* ANIMATIONS */
+@keyframes up{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+@keyframes fl1{0%,100%{transform:translateY(0) rotate(-1deg);}50%{transform:translateY(-10px) rotate(1deg);}}
+@keyframes fl2{0%,100%{transform:translateY(0) rotate(1deg);}50%{transform:translateY(-8px) rotate(-1deg);}}
+
+/* MOBİL MENÜ */
+.mob{display:none;position:fixed;inset:0;z-index:300;background:var(--cream);flex-direction:column;align-items:center;justify-content:center;gap:1.75rem;}
+.mob.open{display:flex;}
+.mob a{font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--brown);text-decoration:none;font-weight:700;}
+.mob button{position:absolute;top:1.25rem;right:1.5rem;background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--muted);}
+
+@media(max-width:960px){
+  .hero{grid-template-columns:1fr;}
+  .hero-left{padding:3rem 6%;}
+  .hero-right{padding:2rem 6% 3rem;min-height:70vw;}
+  .hero-visual{max-width:320px;}
+  .fc.f2{left:0;}.fc.f1{right:0;}
+  .stats-bar{grid-template-columns:repeat(2,1fr);}
+  .st:nth-child(2)::after{display:none;}
+  .srv-grid,.recs-grid,.why-grid{grid-template-columns:1fr;}
+  .about-grid,.tour-grid,.contact-grid{grid-template-columns:1fr;gap:3rem;}
+  .gal{grid-template-columns:1fr 1fr;grid-template-rows:180px 180px 180px;}
+  .foot-grid{grid-template-columns:1fr 1fr;}
+  .nav-ul{display:none;}.burger{display:flex;}
+  .sec{padding:4.5rem 6%;}
+  .qr-section{grid-template-columns:1fr;text-align:center;}
+  .qr-box{margin:0 auto;}
+  .qr-desc{margin:0 auto;}
+}
+</style>
+</head>
+<body>
+
+<!-- MOBİL MENÜ -->
+<div class="mob" id="mob">
+  <button onclick="document.getElementById('mob').classList.remove('open')">✕</button>
+  <a href="#servisler" data-tr="Servisler" data-en="Services">Servisler</a>
+  <a href="#tapas-tur" data-tr="Tapas Turu" data-en="Tapas Tour">Tapas Turu</a>
+  <a href="#hakkimda" data-tr="Hakkımda" data-en="About">Hakkımda</a>
+  <a href="#iletisim" data-tr="İletişim" data-en="Contact">İletişim</a>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="logo">
+    <div class="logo-mark">🍷</div>
+    <div class="logo-t">
+      <b>Madrid Yemek Rehberi</b>
+      <span data-tr="by Emir Yerebaşmaz" data-en="by Emir Yerebaşmaz">by Emir Yerebaşmaz</span>
+    </div>
+  </a>
+  <div class="nav-right">
+    <ul class="nav-ul">
+      <li><a href="#servisler" data-tr="Servisler" data-en="Services">Servisler</a></li>
+      <li><a href="#tapas-tur" data-tr="Tapas Turu" data-en="Tapas Tour">Tapas Turu</a></li>
+      <li><a href="#hakkimda" data-tr="Hakkımda" data-en="About">Hakkımda</a></li>
+      <li><a href="#iletisim" class="nav-btn" data-tr="Ulaş" data-en="Contact">Ulaş</a></li>
+    </ul>
+    <div class="lang-switch">
+      <button class="lang-btn active" onclick="setLang('tr')" id="ltr">TR</button>
+      <button class="lang-btn" onclick="setLang('en')" id="len">EN</button>
+    </div>
+  </div>
+  <div class="burger" onclick="document.getElementById('mob').classList.add('open')">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="h-eyebrow" data-tr="Turistik değil — Gerçek" data-en="Not Touristy — Real">Turistik değil — Gerçek</div>
+    <h1 class="h-title">
+      <span class="t-line1" data-tr="Madrid'de Nerede" data-en="Where to Eat">Madrid'de Nerede</span><br>
+      <span class="t-line2" data-tr="Ne Yenir?" data-en="in Madrid?">Ne Yenir?</span>
+      <span data-tr="Bizzat yenmiş, gerçekten sevilmiş." data-en="Personally tasted, truly loved.">Bizzat yenmiş, gerçekten sevilmiş.</span>
+    </h1>
+    <p class="h-desc" data-tr="Sosyal medyada popüler ama beklentiyi karşılamayan yerlerden uzak durun. Madrid'de yaşayan biri olarak size kürasyon odaklı, filtresiz bir yemek rehberi sunuyorum." data-en="Skip the trendy spots that don't deliver. As someone living in Madrid, I offer a curated, unfiltered food guide tailored to real flavors.">Sosyal medyada popüler ama beklentiyi karşılamayan yerlerden uzak durun. Madrid'de yaşayan biri olarak size kürasyon odaklı, filtresiz bir yemek rehberi sunuyorum.</p>
+    <div class="h-btns">
+      <a href="#servisler" class="btn-r" data-tr="Servislerime Bak" data-en="See My Services">Servislerime Bak</a>
+      <a href="#tapas-tur" class="btn-o" data-tr="Tapas Turu →" data-en="Tapas Tour →">Tapas Turu →</a>
+    </div>
+    <div class="h-trust">
+      <div class="h-titem">
+        <span class="h-tnum">140+</span>
+        <span class="h-tlbl" data-tr="Mekan" data-en="Venues">Mekan</span>
+      </div>
+      <div class="h-tdiv"></div>
+      <div class="h-titem">
+        <span class="h-tnum">%100</span>
+        <span class="h-tlbl" data-tr="Bağımsız" data-en="Independent">Bağımsız</span>
+      </div>
+      <div class="h-tdiv"></div>
+      <div class="h-titem">
+        <span class="h-tnum">0</span>
+        <span class="h-tlbl" data-tr="Sponsorluk" data-en="Sponsorship">Sponsorluk</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-visual">
+      <div class="hero-plate">
+        <span class="hero-plate-fallback">🍷</span>
+      </div>
+      <div class="fc f1">
+        <div class="fc-top"><span class="fc-ico">🗺️</span><span class="fc-lbl" data-tr="Tapas Turu" data-en="Tapas Tour">Tapas Turu</span></div>
+        <div class="fc-val" data-tr="La Latina · Canlı" data-en="La Latina · Live">La Latina · Canlı</div>
+        <div class="fc-sub"><span class="fc-pill rd" data-tr="🔥 En Popüler" data-en="🔥 Most Popular">🔥 En Popüler</span></div>
+      </div>
+      <div class="fc f2">
+        <div class="fc-top"><span class="fc-ico">🚫</span><span class="fc-lbl" data-tr="Sponsorluk" data-en="Sponsorship">Sponsorluk</span></div>
+        <div class="fc-val" data-tr="Sıfır Reklam" data-en="Zero Ads">Sıfır Reklam</div>
+        <div class="fc-sub"><span class="fc-pill gr" data-tr="✓ Tamamen Bağımsız" data-en="✓ Fully Independent">✓ Tamamen Bağımsız</span></div>
+      </div>
+      <div class="fc f3">
+        <div class="fc-top"><span class="fc-ico">📖</span><span class="fc-lbl" data-tr="PDF Rehber" data-en="PDF Guide">PDF Rehber</span></div>
+        <div class="fc-val" data-tr="Kişiye Özel Liste" data-en="Personal List">Kişiye Özel Liste</div>
+        <div class="fc-sub" data-tr="Damak tadına göre" data-en="Tailored to your taste">Damak tadına göre</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="st reveal"><span class="st-n" data-to="140">0</span><span class="st-l" data-tr="Seçilmiş Mekan" data-en="Curated Venues">Seçilmiş Mekan</span></div>
+  <div class="st reveal d1"><span class="st-n" data-to="3">0</span><span class="st-l" data-tr="Tapas Tur Rotası" data-en="Tapas Tour Routes">Tapas Tur Rotası</span></div>
+  <div class="st reveal d2"><span class="st-n" data-to="7">0</span><span class="st-l" data-tr="Michelin Yıldızlı" data-en="Michelin Starred">Michelin Yıldızlı</span></div>
+  <div class="st reveal d3"><span class="st-n">%100</span><span class="st-l" data-tr="Bağımsız & Sponsorsuz" data-en="Independent & Unsponsored">Bağımsız & Sponsorsuz</span></div>
+</div>
+
+<!-- MANİFESTO -->
+<div class="mani">
+  <div class="mani-in reveal">
+    <div class="mani-lbl" data-tr="Neden Madrid Yemek Rehberi?" data-en="Why Madrid Yemek Rehberi?">Neden Madrid Yemek Rehberi?</div>
+    <p class="mani-q" data-tr='"Sorun seçeneklerin azlığı değil, doğru filtrelenmemiş olmasıydı. Trendlere değil, gerçek lezzetlere ulaşmak için bu rehberi kurdum."' data-en='"The problem was never the lack of options — it was the lack of proper filtering. I built this guide to reach real flavors, not trends."'>"Sorun seçeneklerin azlığı değil, doğru filtrelenmemiş olmasıydı. Trendlere değil, gerçek lezzetlere ulaşmak için bu rehberi kurdum."</p>
+    <div class="mani-a" data-tr="— <strong>Emir Yerebaşmaz</strong>, Madrid'de yaşayan bağımsız rehber" data-en="— <strong>Emir Yerebaşmaz</strong>, Independent guide based in Madrid">— <strong>Emir Yerebaşmaz</strong>, Madrid'de yaşayan bağımsız rehber</div>
+  </div>
+</div>
+
+<!-- SERVİSLER — yeni ikon-tabanlı kartlar -->
+<section class="sec" id="servisler">
+  <div class="reveal">
+    <div class="tag" data-tr="Servislerim" data-en="My Services">Servislerim</div>
+    <h2 class="sh">
+      <span data-tr="Madrid'de Yeme-İçme için" data-en="What I Offer for">Madrid'de Yeme-İçme için</span><br>
+      <em data-tr="Ne Sunuyorum?" data-en="Madrid Dining?">Ne Sunuyorum?</em>
+    </h2>
+  </div>
+  <div class="srv-grid">
+    <!-- Kart 1: Tapas Turu -->
+    <div class="srv-card reveal d1">
+      <div class="srv-icon-wrap">🍢</div>
+      <div class="srv-cat" data-tr="Canlı Deneyim" data-en="Live Experience">Canlı Deneyim</div>
+      <div class="srv-name" data-tr="Tapas Turları" data-en="Tapas Tours">Tapas Turları</div>
+      <div class="srv-desc" data-tr="Madrid'in en iyi tapas duraklarını birlikte geziyoruz. 4–5 özenle seçilmiş mekan. Planlama, sipariş ve akış tamamen bende." data-en="We explore Madrid's best tapas stops together. 4–5 carefully selected venues. Planning, ordering and pacing are all on me.">Madrid'in en iyi tapas duraklarını birlikte geziyoruz. 4–5 özenle seçilmiş mekan. Planlama, sipariş ve akış tamamen bende.</div>
+      <div class="srv-feat">
+        <div class="srv-feat-i" data-tr="4–6 kişilik küçük gruplar" data-en="Small groups of 4–6">4–6 kişilik küçük gruplar</div>
+        <div class="srv-feat-i" data-tr="Türkçe veya İngilizce" data-en="Turkish or English">Türkçe veya İngilizce</div>
+        <div class="srv-feat-i" data-tr="Sipariş & rezervasyon dahil" data-en="Ordering & reservations included">Sipariş & rezervasyon dahil</div>
+      </div>
+      <div class="srv-foot"><span class="srv-meta" data-tr="2 Seçenek" data-en="2 Options">2 Seçenek</span><a href="#tapas-tur" class="srv-lnk" data-tr="İncele" data-en="Explore">İncele</a></div>
+    </div>
+
+    <!-- Kart 2: Restoran Rehberi -->
+    <div class="srv-card reveal d2">
+      <div class="srv-icon-wrap">📖</div>
+      <div class="srv-cat" data-tr="PDF Rehber" data-en="PDF Guide">PDF Rehber</div>
+      <div class="srv-name" data-tr="Restoran Rehberleri" data-en="Restaurant Guides">Restoran Rehberleri</div>
+      <div class="srv-desc" data-tr="Genel Madrid rehberi veya size özel kişisel restoran listesi. Damak tadınıza ve bütçenize göre özelleştirilmiş, haritada işaretlenmiş mekanlar." data-en="General Madrid guide or a personal restaurant list curated for you. Mapped venues, tailored to your taste and budget.">Genel Madrid rehberi veya size özel kişisel restoran listesi. Damak tadınıza ve bütçenize göre özelleştirilmiş, haritada işaretlenmiş mekanlar.</div>
+      <div class="srv-feat">
+        <div class="srv-feat-i" data-tr="Google Maps entegrasyonu" data-en="Google Maps integration">Google Maps entegrasyonu</div>
+        <div class="srv-feat-i" data-tr="Mahalle bazlı kategoriler" data-en="Neighborhood categories">Mahalle bazlı kategoriler</div>
+        <div class="srv-feat-i" data-tr="Anında PDF indirme" data-en="Instant PDF download">Anında PDF indirme</div>
+      </div>
+      <div class="srv-foot"><span class="srv-meta" data-tr="2 Seçenek" data-en="2 Options">2 Seçenek</span><a href="#iletisim" class="srv-lnk" data-tr="İncele" data-en="Explore">İncele</a></div>
+    </div>
+
+    <!-- Kart 3: Concierge -->
+    <div class="srv-card reveal d3">
+      <div class="srv-icon-wrap">🛎️</div>
+      <div class="srv-cat" data-tr="Concierge" data-en="Concierge">Concierge</div>
+      <div class="srv-name" data-tr="Rezervasyon & Concierge" data-en="Reservations & Concierge">Rezervasyon & Concierge</div>
+      <div class="srv-desc" data-tr="Madrid'e gelmeden tüm yeme-içme planınız hazır olsun. Rezervasyonlar, sıra kuyruğu, günlük öneriler — siz sadece tadını çıkarın." data-en="Have your entire dining plan ready before arriving in Madrid. Reservations, queue management, daily suggestions — you just enjoy.">Madrid'e gelmeden tüm yeme-içme planınız hazır olsun. Rezervasyonlar, sıra kuyruğu, günlük öneriler — siz sadece tadını çıkarın.</div>
+      <div class="srv-feat">
+        <div class="srv-feat-i" data-tr="Tüm rezervasyonlar yönetilir" data-en="All reservations handled">Tüm rezervasyonlar yönetilir</div>
+        <div class="srv-feat-i" data-tr="Özel günler için ideal" data-en="Perfect for special occasions">Özel günler için ideal</div>
+        <div class="srv-feat-i" data-tr="WhatsApp desteği" data-en="WhatsApp support">WhatsApp desteği</div>
+      </div>
+      <div class="srv-foot"><span class="srv-meta" data-tr="Kişisel" data-en="Personal">Kişisel</span><a href="#iletisim" class="srv-lnk" data-tr="İncele" data-en="Explore">İncele</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- HAKKIMDA -->
+<section class="sec sec-alt" id="hakkimda">
+  <div class="about-grid">
+    <div class="about-card reveal">
+      <div class="about-avatar">EY</div>
+      <div class="about-name">Emir Yerebaşmaz</div>
+      <div class="about-role" data-tr="Madrid Yerli Rehber" data-en="Madrid Local Guide">Madrid Yerli Rehber</div>
+      <div class="about-stats">
+        <div class="as-i"><span class="as-n">140+</span><span class="as-l" data-tr="Mekan" data-en="Venues">Mekan</span></div>
+        <div class="as-i"><span class="as-n">3+</span><span class="as-l" data-tr="Yıl" data-en="Years">Yıl</span></div>
+        <div class="as-i"><span class="as-n">2</span><span class="as-l" data-tr="Dil" data-en="Languages">Dil</span></div>
+      </div>
+    </div>
+    <div>
+      <div class="tag reveal" data-tr="Hakkımda" data-en="About Me">Hakkımda</div>
+      <h2 class="sh reveal d1">Emir Yerebaşmaz</h2>
+      <p class="about-text reveal d2" data-tr="Madrid'de yaşıyorum ve özel bir şirkette çalışıyorum. <strong>MadridYemekRehberi</strong> fikri geçen yıl bir arkadaşımın ziyareti sırasında ortaya çıktı.<br><br>Gittiğimiz bir restoranda sosyal medyada öne çıktığı için kalabalık ve ağırlıklı olarak Türk ziyaretçilerle dolu bir ortamla karşılaştık. Oysa Madrid'de çok daha iyi alternatifler olduğunu biliyordum.<br><br><strong>Sorun seçeneklerin azlığı değildi. Doğru filtrelenmemiş olmasıydı.</strong><br><br>Buradaki hiçbir öneri reklam, sponsorluk veya davet karşılığı değildir." data-en="I live in Madrid and work for a private company. The <strong>MadridYemekRehberi</strong> idea came up last year during a friend's visit.<br><br>At a restaurant we went to, we found ourselves in a crowded place mostly filled with Turkish tourists — popular on social media but not the best. Yet I knew Madrid had much better alternatives.<br><br><strong>The problem wasn't the lack of options. It was the lack of proper filtering.</strong><br><br>No recommendation here comes from ads, sponsorships or invitations.">Madrid'de yaşıyorum ve özel bir şirkette çalışıyorum. <strong>MadridYemekRehberi</strong> fikri geçen yıl bir arkadaşımın ziyareti sırasında ortaya çıktı.<br><br>Gittiğimiz bir restoranda sosyal medyada öne çıktığı için kalabalık ve ağırlıklı olarak Türk ziyaretçilerle dolu bir ortamla karşılaştık. Oysa Madrid'de çok daha iyi alternatifler olduğunu biliyordum.<br><br><strong>Sorun seçeneklerin azlığı değildi. Doğru filtrelenmemiş olmasıydı.</strong><br><br>Buradaki hiçbir öneri reklam, sponsorluk veya davet karşılığı değildir.</p>
+      <div class="pills reveal d3">
+        <span class="pill" data-tr="🚫 Sıfır Sponsorluk" data-en="🚫 Zero Sponsorship">🚫 Sıfır Sponsorluk</span>
+        <span class="pill" data-tr="✅ Bizzat Gidilmiş" data-en="✅ Personally Visited">✅ Bizzat Gidilmiş</span>
+        <span class="pill" data-tr="🗺️ Madrid'de Yaşıyor" data-en="🗺️ Lives in Madrid">🗺️ Madrid'de Yaşıyor</span>
+        <span class="pill" data-tr="🎯 Kürasyon Odaklı" data-en="🎯 Curation Focused">🎯 Kürasyon Odaklı</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TAPAS TUR — yeni: krem-zemin görsel kart -->
+<section class="sec" id="tapas-tur">
+  <div class="tour-grid">
+    <div class="tour-visual reveal">
+      <div class="tour-icon-large">🍢</div>
+      <div class="tour-vh" data-tr="Madrid'in en otantik tapas deneyimi" data-en="Madrid's most authentic tapas experience">Madrid'in en otantik tapas deneyimi</div>
+      <div class="tour-feats">
+        <div class="tour-feat">
+          <div class="tf-icon">👥</div>
+          <span class="tf-num">4–6</span>
+          <span class="tf-lbl" data-tr="Kişi" data-en="People">Kişi</span>
+        </div>
+        <div class="tour-feat">
+          <div class="tf-icon">🍷</div>
+          <span class="tf-num">4–5</span>
+          <span class="tf-lbl" data-tr="Mekan" data-en="Venues">Mekan</span>
+        </div>
+        <div class="tour-feat">
+          <div class="tf-icon">⏱️</div>
+          <span class="tf-num">3–4</span>
+          <span class="tf-lbl" data-tr="Saat" data-en="Hours">Saat</span>
+        </div>
+        <div class="tour-feat">
+          <div class="tf-icon">🌍</div>
+          <span class="tf-num">TR/EN</span>
+          <span class="tf-lbl" data-tr="Dil" data-en="Languages">Dil</span>
+        </div>
+      </div>
+      <div class="tour-quote" data-tr='"Amaç çok yer gezmek değil, doğru yerlerde doğru lezzetleri tatmak."' data-en='"The goal isn\'t to visit many places — it\'s to taste the right flavors at the right places."'>"Amaç çok yer gezmek değil, doğru yerlerde doğru lezzetleri tatmak."</div>
+    </div>
+    <div>
+      <div class="tag reveal" data-tr="Tapas Turları" data-en="Tapas Tours">Tapas Turları</div>
+      <h2 class="sh reveal d1">
+        <span data-tr="Madrid'i Doğru" data-en="Discover Madrid">Madrid'i Doğru</span><br>
+        <em data-tr="Lezzetlerle Keşfet" data-en="Through Real Flavors">Lezzetlerle Keşfet</em>
+      </h2>
+      <p class="sp reveal d2" data-tr="Kalabalık turist rotalarından uzak, tamamen size göre hazırlanmış tapas deneyimleri." data-en="Far from crowded tourist routes, tapas experiences crafted specifically for you.">Kalabalık turist rotalarından uzak, tamamen size göre hazırlanmış tapas deneyimleri.</p>
+      <div class="tour-opts reveal d2">
+        <div class="t-opt">
+          <div class="t-opt-h">
+            <div class="t-opt-n" data-tr="Seçenek 1 — Küratör Eşliğinde" data-en="Option 1 — With a Curator">Seçenek 1 — Küratör Eşliğinde</div>
+            <div class="t-opt-b" data-tr="Canlı" data-en="Live">Canlı</div>
+          </div>
+          <div class="t-opt-d" data-tr="Madrid'in en iyi tapas duraklarını birlikte geziyoruz. 4–5 özenle seçilmiş mekan, sipariş önerileri. Planlama tamamen bende." data-en="We explore Madrid's best tapas stops together. 4–5 carefully selected venues with ordering tips. Planning fully on me.">Madrid'in en iyi tapas duraklarını birlikte geziyoruz. 4–5 özenle seçilmiş mekan, sipariş önerileri. Planlama tamamen bende.</div>
+        </div>
+        <div class="t-opt">
+          <div class="t-opt-h">
+            <div class="t-opt-n" data-tr="Seçenek 2 — Size Özel PDF Rotası" data-en="Option 2 — Personal PDF Route">Seçenek 2 — Size Özel PDF Rotası</div>
+            <div class="t-opt-b" data-tr="PDF" data-en="PDF">PDF</div>
+          </div>
+          <div class="t-opt-d" data-tr="Kendi temponuzda tapas turu için. Zevklerinizi alıyorum, size özel bir PDF rota hazırlıyorum." data-en="For tapas at your own pace. I learn your preferences and craft a personalized PDF route for you.">Kendi temponuzda tapas turu için. Zevklerinizi alıyorum, size özel bir PDF rota hazırlıyorum.</div>
+        </div>
+      </div>
+      <a href="#iletisim" class="btn-r reveal d3" style="width:fit-content" data-tr="İletişime Geç →" data-en="Get in Touch →">İletişime Geç →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ÖRNEK MEKANLAR — emoji tabanlı temiz kartlar -->
+<section class="sec sec-alt">
+  <div class="reveal">
+    <div class="tag" data-tr="Örnek Tavsiyeler" data-en="Sample Picks">Örnek Tavsiyeler</div>
+    <h2 class="sh">
+      <span data-tr="Bizzat Yenmiş," data-en="Personally Tasted,">Bizzat Yenmiş,</span><br>
+      <em data-tr="Gerçekten Sevilmiş" data-en="Truly Loved">Gerçekten Sevilmiş</em>
+    </h2>
+  </div>
+  <div class="recs-grid">
+    <div class="rec reveal d1">
+      <div class="rec-top">
+        <span class="rec-tag" data-tr="Şef Önerisi" data-en="Chef's Pick">Şef Önerisi</span>
+        <span class="rec-emoji">🐙</span>
+      </div>
+      <div class="rec-body">
+        <div class="rec-cat" data-tr="Fine Dining · Çiğ Balık" data-en="Fine Dining · Raw Fish">Fine Dining · Çiğ Balık</div>
+        <div class="rec-name">Hermanos Vinagre</div>
+        <div class="rec-note" data-tr="Limon rendeli kalamar. Basit ama unutulmaz. Madrid'in gizli kalmış şef restoranlarından." data-en="Calamari with lemon zest. Simple yet unforgettable. One of Madrid's hidden chef restaurants.">Limon rendeli kalamar. Basit ama unutulmaz. Madrid'in gizli kalmış şef restoranlarından.</div>
+      </div>
+    </div>
+    <div class="rec reveal d2">
+      <div class="rec-top">
+        <span class="rec-tag" data-tr="Klasik" data-en="Classic">Klasik</span>
+        <span class="rec-emoji">🦑</span>
+      </div>
+      <div class="rec-body">
+        <div class="rec-cat" data-tr="Deniz Ürünleri · La Latina" data-en="Seafood · La Latina">Deniz Ürünleri · La Latina</div>
+        <div class="rec-name">La Mina</div>
+        <div class="rec-note" data-tr="Izgara ahtapot ve patatas bravas. Madrid'in en güvenilir deniz ürünleri adreslerinden." data-en="Grilled octopus and patatas bravas. One of Madrid's most reliable seafood spots.">Izgara ahtapot ve patatas bravas. Madrid'in en güvenilir deniz ürünleri adreslerinden.</div>
+      </div>
+    </div>
+    <div class="rec reveal d3">
+      <div class="rec-top">
+        <span class="rec-tag" data-tr="Vegan Dostu" data-en="Vegan Friendly">Vegan Dostu</span>
+        <span class="rec-emoji">🥗</span>
+      </div>
+      <div class="rec-body">
+        <div class="rec-cat" data-tr="Tapas · Yaratıcı Mutfak" data-en="Tapas · Creative Cuisine">Tapas · Yaratıcı Mutfak</div>
+        <div class="rec-name">Huerta Funky Castizo</div>
+        <div class="rec-note" data-tr="Yaratıcı tapas, sebze odaklı mutfak. Turistik görünüp turistik olmayan nadir mekanlardan." data-en="Creative tapas, plant-forward cuisine. Looks touristy but truly isn't — a rare find.">Yaratıcı tapas, sebze odaklı mutfak. Turistik görünüp turistik olmayan nadir mekanlardan.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FARKIM / NEDEN BİZ — krem zemin -->
+<section class="sec">
+  <div style="text-align:center;max-width:520px;margin:0 auto;">
+    <div class="tag reveal" style="margin:0 auto 1rem" data-tr="Farkım" data-en="What Sets Me Apart">Farkım</div>
+    <h2 class="sh reveal d1" style="text-align:center">
+      <span data-tr="Neden Bana" data-en="Why Should You">Neden Bana</span><br>
+      <em data-tr="Güvenebilirsiniz?" data-en="Trust Me?">Güvenebilirsiniz?</em>
+    </h2>
+  </div>
+  <div class="why-grid">
+    <div class="why-card reveal d1">
+      <div class="why-icon-wrap">🚫</div>
+      <div class="why-h" data-tr="Reklamsız & Sponsorsuz" data-en="No Ads, No Sponsors">Reklamsız & Sponsorsuz</div>
+      <div class="why-p" data-tr="Hiçbir öneri reklam, sponsorluk veya davet karşılığı değildir. Para ödeyerek listeye giren mekan yoktur." data-en="No recommendation comes from ads, sponsorships or invitations. No venue gets in by paying.">Hiçbir öneri reklam, sponsorluk veya davet karşılığı değildir. Para ödeyerek listeye giren mekan yoktur.</div>
+    </div>
+    <div class="why-card reveal d2">
+      <div class="why-icon-wrap">🧭</div>
+      <div class="why-h" data-tr="Bizzat Gidilmiş" data-en="Personally Visited">Bizzat Gidilmiş</div>
+      <div class="why-p" data-tr="Paylaşılan her mekan bizzat ziyaret edilmiş ve tekrar gidilmeye değer bulunmuştur. İnternetten derleme değil." data-en="Every venue shared has been personally visited and deemed worthy of returning to. Not curated from the internet.">Paylaşılan her mekan bizzat ziyaret edilmiş ve tekrar gidilmeye değer bulunmuştur. İnternetten derleme değil.</div>
+    </div>
+    <div class="why-card reveal d3">
+      <div class="why-icon-wrap">🎯</div>
+      <div class="why-h" data-tr="Doğru Yere Git" data-en="Go to the Right Place">Doğru Yere Git</div>
+      <div class="why-p" data-tr="Sosyal medyada popüler ama hayal kırıklığı yaratan yerlerden uzak durursunuz. Çok yer değil, doğru yer." data-en="You'll skip the trendy social-media spots that disappoint. Not many places — the right places.">Sosyal medyada popüler ama hayal kırıklığı yaratan yerlerden uzak durursunuz. Çok yer değil, doğru yer.</div>
+    </div>
+  </div>
+</section>
+
+<!-- QR BÖLÜMÜ -->
+<div class="qr-section reveal">
+  <div class="qr-left">
+    <div class="mani-lbl" style="color:rgba(255,255,255,.5)" data-tr="Siteye Hızlı Erişim" data-en="Quick Site Access">Siteye Hızlı Erişim</div>
+    <h2 class="qr-title">madridyemekrehberi.com</h2>
+    <p class="qr-desc" data-tr="QR kodu okutarak siteye anında ulaşabilirsiniz. Arkadaşlarınızla paylaşın, Madrid planınızı birlikte yapın." data-en="Scan the QR code to access the site instantly. Share with friends and plan your Madrid trip together.">QR kodu okutarak siteye anında ulaşabilirsiniz. Arkadaşlarınızla paylaşın, Madrid planınızı birlikte yapın.</p>
+  </div>
+  <div class="qr-box">
+    <div class="qr-code">
+      <svg viewBox="0 0 29 29" xmlns="http://www.w3.org/2000/svg" style="shape-rendering:crispEdges">
+        <rect width="29" height="29" fill="#FDF6EC"/>
+        <rect x="0" y="0" width="7" height="7" fill="#8B1A1A"/><rect x="1" y="1" width="5" height="5" fill="#FDF6EC"/><rect x="2" y="2" width="3" height="3" fill="#8B1A1A"/>
+        <rect x="22" y="0" width="7" height="7" fill="#8B1A1A"/><rect x="23" y="1" width="5" height="5" fill="#FDF6EC"/><rect x="24" y="2" width="3" height="3" fill="#8B1A1A"/>
+        <rect x="0" y="22" width="7" height="7" fill="#8B1A1A"/><rect x="1" y="23" width="5" height="5" fill="#FDF6EC"/><rect x="2" y="24" width="3" height="3" fill="#8B1A1A"/>
+        <rect x="8" y="6" width="1" height="1" fill="#8B1A1A"/><rect x="10" y="6" width="1" height="1" fill="#8B1A1A"/><rect x="12" y="6" width="1" height="1" fill="#8B1A1A"/>
+        <rect x="6" y="8" width="1" height="1" fill="#8B1A1A"/><rect x="6" y="10" width="1" height="1" fill="#8B1A1A"/><rect x="6" y="12" width="1" height="1" fill="#8B1A1A"/>
+        <rect x="8" y="8" width="2" height="2" fill="#8B1A1A"/><rect x="11" y="8" width="1" height="2" fill="#8B1A1A"/><rect x="14" y="8" width="2" height="1" fill="#8B1A1A"/><rect x="17" y="8" width="2" height="2" fill="#8B1A1A"/><rect x="20" y="8" width="2" height="1" fill="#8B1A1A"/>
+        <rect x="8" y="11" width="1" height="2" fill="#8B1A1A"/><rect x="10" y="11" width="3" height="1" fill="#8B1A1A"/><rect x="15" y="11" width="2" height="2" fill="#8B1A1A"/><rect x="19" y="11" width="1" height="1" fill="#8B1A1A"/><rect x="21" y="11" width="1" height="2" fill="#8B1A1A"/>
+        <rect x="8" y="14" width="3" height="1" fill="#8B1A1A"/><rect x="13" y="14" width="1" height="2" fill="#8B1A1A"/><rect x="16" y="14" width="2" height="1" fill="#8B1A1A"/><rect x="20" y="14" width="2" height="2" fill="#8B1A1A"/>
+        <rect x="8" y="17" width="2" height="2" fill="#8B1A1A"/><rect x="12" y="17" width="2" height="1" fill="#8B1A1A"/><rect x="15" y="17" width="1" height="2" fill="#8B1A1A"/><rect x="18" y="17" width="3" height="1" fill="#8B1A1A"/>
+        <rect x="8" y="20" width="1" height="2" fill="#8B1A1A"/><rect x="11" y="20" width="2" height="2" fill="#8B1A1A"/><rect x="14" y="20" width="3" height="1" fill="#8B1A1A"/><rect x="19" y="20" width="2" height="2" fill="#8B1A1A"/><rect x="22" y="20" width="1" height="2" fill="#8B1A1A"/>
+        <rect x="8" y="23" width="3" height="1" fill="#8B1A1A"/><rect x="13" y="23" width="2" height="2" fill="#8B1A1A"/><rect x="17" y="23" width="1" height="1" fill="#8B1A1A"/><rect x="20" y="24" width="2" height="1" fill="#8B1A1A"/><rect x="23" y="23" width="1" height="2" fill="#8B1A1A"/>
+        <rect x="9" y="26" width="2" height="1" fill="#8B1A1A"/><rect x="14" y="26" width="3" height="1" fill="#8B1A1A"/><rect x="19" y="26" width="2" height="1" fill="#8B1A1A"/><rect x="22" y="26" width="2" height="1" fill="#8B1A1A"/>
+      </svg>
+    </div>
+    <div class="qr-label">madridyemekrehberi.com</div>
+    <div class="qr-url" data-tr="Tarayıcıyla okutun" data-en="Scan with your camera">Tarayıcıyla okutun</div>
+  </div>
+</div>
+
+<!-- İLETİŞİM — krem zemin -->
+<section class="sec sec-alt" id="iletisim">
+  <div class="contact-grid">
+    <div>
+      <div class="tag reveal" data-tr="İletişim" data-en="Contact">İletişim</div>
+      <h2 class="sh reveal d1">
+        <span data-tr="Hadi Başlayalım." data-en="Let's Begin.">Hadi Başlayalım.</span><br>
+        <em data-tr="Ne İstiyorsunuz?" data-en="What Do You Need?">Ne İstiyorsunuz?</em>
+      </h2>
+      <p class="sp reveal d2" data-tr="Tapas turu, kişisel restoran listesi veya rezervasyon desteği için doğrudan ulaşın." data-en="Reach out directly for a tapas tour, a personal restaurant list, or reservation support.">Tapas turu, kişisel restoran listesi veya rezervasyon desteği için doğrudan ulaşın.</p>
+      <div class="contact-items reveal d3">
+        <a class="c-item" href="mailto:madridyemekrehberi@hotmail.com">
+          <div class="c-icon-circle">✉️</div>
+          <div class="c-text-wrap">
+            <span class="c-text-lbl" data-tr="E-posta" data-en="Email">E-posta</span>
+            <span class="c-text-val">madridyemekrehberi@hotmail.com</span>
+          </div>
+        </a>
+        <a class="c-item" href="https://instagram.com/madridyemekrehberi" target="_blank">
+          <div class="c-icon-circle">📷</div>
+          <div class="c-text-wrap">
+            <span class="c-text-lbl">Instagram</span>
+            <span class="c-text-val">@madridyemekrehberi</span>
+          </div>
+        </a>
+        <a class="c-item" href="https://tiktok.com/@madridyemekrehberi" target="_blank">
+          <div class="c-icon-circle">🎵</div>
+          <div class="c-text-wrap">
+            <span class="c-text-lbl">TikTok</span>
+            <span class="c-text-val">@madridyemekrehberi</span>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="reveal d2">
+      <div class="nl-box">
+        <div class="nl-h" data-tr="Bültene Abone Ol" data-en="Subscribe to Newsletter">Bültene Abone Ol</div>
+        <div class="nl-p" data-tr="Yeni mekan önerileri, tur haberleri ve Madrid'den lezzet notları haftada bir." data-en="New venue picks, tour news and flavor notes from Madrid — once a week.">Yeni mekan önerileri, tur haberleri ve Madrid'den lezzet notları haftada bir.</div>
+        <div class="nl-form">
+          <input class="nl-inp" type="text" data-tr-ph="Adınız" data-en-ph="Your name" placeholder="Adınız">
+          <input class="nl-inp" type="email" data-tr-ph="E-posta adresiniz" data-en-ph="Your email" placeholder="E-posta adresiniz">
+          <button class="btn-r" style="border:none;cursor:pointer;font-family:'DM Sans',sans-serif;justify-content:center;" data-tr="Abone Ol →" data-en="Subscribe →">Abone Ol →</button>
+          <p class="nl-note" data-tr="Haftada bir e-posta. İstediğiniz zaman çıkabilirsiniz." data-en="One email per week. Unsubscribe anytime.">Haftada bir e-posta. İstediğiniz zaman çıkabilirsiniz.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-grid">
+    <div>
+      <div class="foot-logo"><div class="foot-mark">🍷</div><span class="foot-brand">Madrid Yemek Rehberi</span></div>
+      <p class="foot-desc" data-tr="Turistik değil, gerçek. Bizzat yenmiş, gerçekten sevilmiş mekanlar. Emir Yerebaşmaz tarafından Madrid'den." data-en="Not touristy — real. Personally tasted, truly loved venues. By Emir Yerebaşmaz from Madrid.">Turistik değil, gerçek. Bizzat yenmiş, gerçekten sevilmiş mekanlar. Emir Yerebaşmaz tarafından Madrid'den.</p>
+      <div class="foot-soc">
+        <a class="soc" href="mailto:madridyemekrehberi@hotmail.com">✉️</a>
+        <a class="soc" href="https://instagram.com/madridyemekrehberi" target="_blank">📷</a>
+        <a class="soc" href="https://tiktok.com/@madridyemekrehberi" target="_blank">🎵</a>
+      </div>
+    </div>
+    <div class="foot-col">
+      <h5 data-tr="Servisler" data-en="Services">Servisler</h5>
+      <ul class="foot-links">
+        <li><a href="#tapas-tur" data-tr="Küratör Eşliğinde Tapas Turu" data-en="Curated Tapas Tour">Küratör Eşliğinde Tapas Turu</a></li>
+        <li><a href="#tapas-tur" data-tr="PDF Tapas Rotası" data-en="PDF Tapas Route">PDF Tapas Rotası</a></li>
+        <li><a href="#servisler" data-tr="Restoran Rehberi" data-en="Restaurant Guide">Restoran Rehberi</a></li>
+        <li><a href="#servisler" data-tr="Kişisel Liste" data-en="Personal List">Kişisel Liste</a></li>
+        <li><a href="#servisler" data-tr="Rezervasyon Desteği" data-en="Reservation Support">Rezervasyon Desteği</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h5 data-tr="Bilgi" data-en="Info">Bilgi</h5>
+      <ul class="foot-links">
+        <li><a href="#hakkimda" data-tr="Hakkımda" data-en="About">Hakkımda</a></li>
+        <li><a href="#iletisim" data-tr="İletişim" data-en="Contact">İletişim</a></li>
+        <li><a href="mailto:madridyemekrehberi@hotmail.com" data-tr="E-posta" data-en="Email">E-posta</a></li>
+        <li><a href="https://instagram.com/madridyemekrehberi">Instagram</a></li>
+        <li><a href="https://tiktok.com/@madridyemekrehberi">TikTok</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span data-tr="© 2025 Madrid Yemek Rehberi — Emir Yerebaşmaz" data-en="© 2025 Madrid Yemek Rehberi — Emir Yerebaşmaz">© 2025 Madrid Yemek Rehberi — Emir Yerebaşmaz</span>
+    <span>madridyemekrehberi.com</span>
+  </div>
+</footer>
+
+<script>
+// Nav scroll
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('sc',scrollY>40));
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{
+  const t=document.querySelector(a.getAttribute('href'));
+  if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}
+}));
+
+// Reveal
+const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('in');}),{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+// Sayaç
+function countUp(el){
+  const to=parseInt(el.dataset.to);
+  if(!to)return;
+  const dur=1400;const start=performance.now();
+  function step(now){
+    const t=Math.min((now-start)/dur,1);
+    const ease=1-Math.pow(1-t,3);
+    el.textContent=Math.round(ease*to)+(to>=100?'+':'');
+    if(t<1)requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+const cio=new IntersectionObserver(e=>e.forEach(x=>{
+  if(x.isIntersecting&&x.target.dataset.to){countUp(x.target);cio.unobserve(x.target);}
+}),{threshold:.5});
+document.querySelectorAll('.st-n[data-to]').forEach(el=>cio.observe(el));
+
+// DİL DEĞİŞTİRİCİ
+function setLang(lang){
+  document.documentElement.lang=lang;
+  // Tüm data-tr/data-en olan elementleri çevir
+  document.querySelectorAll('[data-tr]').forEach(el=>{
+    const txt=el.getAttribute('data-'+lang);
+    if(txt!==null){el.innerHTML=txt;}
+  });
+  // Placeholder'ları çevir
+  document.querySelectorAll('[data-tr-ph]').forEach(el=>{
+    const ph=el.getAttribute('data-'+lang+'-ph');
+    if(ph!==null){el.placeholder=ph;}
+  });
+  // Buton durumu
+  document.getElementById('ltr').classList.toggle('active',lang==='tr');
+  document.getElementById('len').classList.toggle('active',lang==='en');
+  // localStorage'a kaydet
+  try{localStorage.setItem('mdy-lang',lang);}catch(e){}
+}
+// Sayfa açılışında localStorage'dan dil al
+try{
+  const saved=localStorage.getItem('mdy-lang');
+  if(saved&&saved!=='tr')setLang(saved);
+}catch(e){}
+</script>
+</body>
+</html>
